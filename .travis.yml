@@ -20,7 +20,7 @@ jobs:
         - go vet -v
     - stage: test
       script:
-        - go test -v
+        - go test -v -cover
 
 matrix:
   allow_failures:
