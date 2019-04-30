@@ -1,11 +1,7 @@
 language: go
 
 go:
-  - 1.9.x
-  - 1.10.x
-  - 1.11.x
   - 1.12.x
-  - master
 
 stages:
   - lint
@@ -23,6 +19,7 @@ jobs:
     - stage: test
       script:
         - go test -v -covermode=count -coverprofile=coverage.out
+        - $GOPATH/bin/goveralls -service=travis-ci
 
 matrix:
   allow_failures:
