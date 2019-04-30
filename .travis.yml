@@ -12,12 +12,12 @@ jobs:
     - stage: lint
       script:
         - go get golang.org/x/lint/golint
-        - go get golang.org/x/tools/cmd/cover
-        - go get github.com/mattn/goveralls
         - golint -set_exit_status
         - go vet -v
     - stage: test
       script:
+        - go get golang.org/x/tools/cmd/cover
+        - go get github.com/mattn/goveralls
         - go test -v -covermode=count -coverprofile=coverage.out
         - $GOPATH/bin/goveralls -service=travis-ci
 
